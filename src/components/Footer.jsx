@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
 
       {/* Section 2: Actual Footer - Light Background */}
-      <div className="bg-white dark:bg-bg-light text-text-dark transition-colors duration-300">
+      <div className="bg-white dark:bg-bg-dark text-text-dark dark:text-text-light transition-colors duration-300">
         <div className="container mx-auto px-6 md:px-12 py-16 md:py-20">
           {/* Footer Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -64,13 +64,13 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider">Company</h4>
+              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider text-text-dark dark:text-text-light">Company</h4>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href} 
-                      className="text-text-dark hover:text-primary-orange transition-colors text-base"
+                      className="text-text-dark dark:text-text-light hover:text-primary-orange transition-colors text-base"
                       data-cursor-text="View"
                     >
                       {link.name}
@@ -87,13 +87,13 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider">Support</h4>
+              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider text-text-dark dark:text-text-light">Support</h4>
               <ul className="space-y-3">
                 {footerLinks.support.map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href} 
-                      className="text-text-dark hover:text-primary-orange transition-colors text-base"
+                      className="text-text-dark dark:text-text-light hover:text-primary-orange transition-colors text-base"
                       data-cursor-text="View"
                     >
                       {link.name}
@@ -110,13 +110,13 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider">Social</h4>
+              <h4 className="text-lg font-bold mb-6 uppercase tracking-wider text-text-dark dark:text-text-light">Social</h4>
               <ul className="space-y-3">
                 {footerLinks.social.map((social) => (
                   <li key={social.name}>
                     <a
                       href={social.href}
-                      className="flex items-center gap-3 text-text-dark hover:text-primary-orange transition-colors text-base"
+                      className="flex items-center gap-3 text-text-dark dark:text-text-light hover:text-primary-orange transition-colors text-base"
                       data-cursor-text={social.name}
                     >
                       <social.icon className="text-xl" />
@@ -137,7 +137,7 @@ const Footer = () => {
             >
               <a 
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold hover:text-primary-orange transition-colors inline-block"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark dark:text-text-light hover:text-primary-orange transition-colors inline-block"
                 data-cursor-text="Click to Email"
               >
                 {CONTACT_EMAIL}
@@ -153,7 +153,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-8"
           >
-            <h2 className="text-7xl md:text-8xl lg:text-9xl font-bold text-text-dark">
+            <h2 className="text-7xl md:text-8xl lg:text-9xl font-bold text-text-dark dark:text-text-light">
               Doptic
             </h2>
           </motion.div>
@@ -166,8 +166,8 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="border-t border-gray-300 pt-8"
           >
-            <p className="text-text-dark text-sm md:text-base">
-              Copyright ©Doptic – Where designs meet the future.
+            <p className="text-text-dark dark:text-text-light text-sm md:text-base">
+              Copyright © Doptic – Where designs meet the future.
             </p>
           </motion.div>
         </div>
