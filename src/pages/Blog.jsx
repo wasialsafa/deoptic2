@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import MagneticButton from '../components/MagneticButton'
 
 const Blog = () => {
@@ -40,6 +41,28 @@ const Blog = () => {
     }
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    }
+  }
+
   return (
     <section
       className="min-h-screen bg-bg-light dark:bg-bg-dark py-20 px-6 md:px-12 transition-colors duration-300"
@@ -47,7 +70,13 @@ const Blog = () => {
     >
       <div className="container mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-dark dark:text-text-light">
             Insights from the <span className="text-italic-serif">studio</span>
           </h2>
@@ -59,13 +88,20 @@ const Blog = () => {
               View All
             </MagneticButton>
           </div>
-        </div>
+        </motion.div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {blogPosts.map((post) => (
-            <article
+            <motion.article
               key={post.id}
+              variants={itemVariants}
               className="group cursor-pointer"
             >
               {/* Image */}
@@ -96,9 +132,9 @@ const Blog = () => {
               <p className="text-lg text-gray-700 dark:text-text-secondary">
                 {post.description}
               </p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

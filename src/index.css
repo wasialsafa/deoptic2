@@ -7,25 +7,25 @@
 @layer base {
   /* CSS Variables for Theme */
   :root {
-    --bg-primary: #DFDFF0;
+    --bg-primary: #E2E2E2;
     --bg-secondary: #ffffff;
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
-    --accent: #FF4920;
+    --accent: #FF6B4A;
   }
 
   .dark {
-    --bg-primary: #0a0a0a;
+    --bg-primary: #0E0E0E;
     --bg-secondary: #1a1a1a;
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
-    --accent: #FF4920;
+    --accent: #FF6B4A;
   }
 
-  /* General Sans font simulation using Inter */
+  /* Inter as primary font */
   body {
     @apply font-sans;
-    font-family: 'Inter', 'General Sans', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     cursor: none;
     background-color: var(--bg-primary);
     color: var(--text-primary);
