@@ -164,10 +164,10 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="border-t border-gray-300 pt-8"
+            className="border-t border-gray-300 dark:border-gray-700 pt-8"
           >
             <p className="text-text-dark dark:text-text-light text-sm md:text-base">
-              Copyright © Doptic – Where designs meet the future.
+              Copyright © {new Date().getFullYear()} Doptic – Where designs meet the future.
             </p>
           </motion.div>
         </div>
