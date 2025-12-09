@@ -106,7 +106,7 @@ const About = () => {
       className="min-h-screen bg-black py-20 px-6 md:px-12 relative overflow-hidden"
       id="about"
     >
-      {/* CRITICAL: Diagonal Marquee 1 with WHITE BACKGROUND - starts offscreen */}
+      {/* CRITICAL: Diagonal Marquee 1 with WHITE BACKGROUND - starts offscreen 
       <div className="absolute top-1/4 left-0 right-0 transform -rotate-[5deg] overflow-visible pointer-events-none will-change-transform">
         <div
           ref={marquee1Ref}
@@ -128,31 +128,36 @@ const About = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div>*/}
 
       {/* CRITICAL: Diagonal Marquee 2 with WHITE BACKGROUND - starts offscreen opposite side */}
-      <div className="absolute bottom-1/4 left-0 right-0 transform rotate-[5deg] overflow-visible pointer-events-none will-change-transform">
-        <div
-          ref={marquee2Ref}
-          className="will-change-transform"
-          style={{ width: '200%', transform: 'translateX(-100vw)' }}
+      <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 rotate-[5deg] overflow-visible pointer-events-none will-change-transform">
+  <div
+    ref={marquee2Ref}
+    className="will-change-transform"
+    style={{ width: '200%', transform: 'translateX(-100vw)' }}
+  >
+    <div
+      ref={marquee2InnerRef}
+      className="flex whitespace-nowrap bg-primary-orange py-6"
+      style={{ width: '200%' }}
+    >
+      {[...Array(20)].map((_, i) => (
+        <span
+          key={i}
+          className="text-4xl md:text-5xl lg:text-[64px] font-normal text-white mx-8"
+          style={{ 
+            fontFamily: 'Italiana, serif',
+            lineHeight: '120%',
+            letterSpacing: '-0.02em'
+          }}
         >
-          <div
-            ref={marquee2InnerRef}
-            className="flex whitespace-nowrap bg-white py-4"
-            style={{ width: '200%' }}
-          >
-            {[...Array(20)].map((_, i) => (
-              <span
-                key={i}
-                className="text-4xl md:text-6xl lg:text-8xl font-bold text-black mx-8"
-              >
-                About us •
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+          About us •
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
 
       <div className="container mx-auto relative z-10 flex flex-col items-center justify-center min-h-screen">
         {/* Main headline - ABOVE the image with transparent effect */}
