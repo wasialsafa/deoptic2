@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowDown } from 'react-icons/fi'
@@ -14,31 +15,30 @@ const Hero = () => {
   const imageRef = useRef(null)
   const desktopImageRef = useRef(null)
   const badgeRef = useRef(null)
+  const [displayedText, setDisplayedText] = useState('')
+  const fullText = 'An agency defining style and digital culture.'
 
   useEffect(() => {
+    // Typewriter effect
+    let currentIndex = 0
+    const typewriterDelay = setTimeout(() => {
+      const typeInterval = setInterval(() => {
+        if (currentIndex < fullText.length) {
+          setDisplayedText(fullText.slice(0, currentIndex + 1))
+          currentIndex++
+        } else {
+          clearInterval(typeInterval)
+        }
+      }, 50)
+      return () => clearInterval(typeInterval)
+    }, 3000)
+
     const headline = headlineRef.current
     const subtext = subtextRef.current
     const cta = ctaRef.current
     const image = imageRef.current
     const desktopImage = desktopImageRef.current
     const badge = badgeRef.current
-
-    // Split text animation
-    if (headline) {
-      const words = headline.querySelectorAll('.word')
-      gsap.fromTo(
-        words,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.1,
-          duration: 1,
-          delay: 3,
-          ease: 'power3.out',
-        }
-      )
-    }
 
     // Subtext animation
     gsap.fromTo(
@@ -115,22 +115,31 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start lg:items-center">
           {/* Left Content */}
           <div className="w-full lg:w-1/2">
-            <h1
+            <motion.h1
               ref={headlineRef}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-text-dark dark:text-text-light"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 3 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-text-dark dark:text-text-light min-h-[200px]"
             >
-              <span className="word inline-block">An</span>{' '}
-              <span className="word inline-block">agency</span>{' '}
-              <span className="word inline-block">defining</span>{' '}
-              <span className="word inline-block">style</span>{' '}
-              <span className="word inline-block">and</span>{' '}
-              <span className="word inline-block text-italic-serif">
-                digital culture.
-              </span>
-            </h1>
+              {displayedText.split(' ').map((word, index) => (
+                <span 
+                  key={index} 
+                  className={word === 'culture.' ? 'font-serif italic' : ''}
+                >
+                  {word}{' '}
+                </span>
+              ))}
+            </motion.h1>
             
             {/* Mobile: Image appears here between headline and subtext */}
-            <div ref={imageRef} className="lg:hidden relative my-8">
+            <motion.div 
+              ref={imageRef} 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 3.3 }}
+              className="lg:hidden relative my-8"
+            >
               <div className="image-container rounded-3xl overflow-hidden shadow-2xl will-change-transform">
                 <img
                   src="/images/homepageImage.svg"
@@ -163,28 +172,42 @@ const Hero = () => {
                   <FiArrowDown className="text-text-dark text-xl absolute" />
                 </div>
               </div>
-            </div>
+            </motion.div>
             
-            <p
+            <motion.p
               ref={subtextRef}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 3.5 }}
               className="text-lg md:text-xl text-gray-700 dark:text-text-secondary mb-8 max-w-xl"
             >
               We create clean designs that turn visitors into paying clients. You
               get a professional look that makes selling your services very easy.
-            </p>
-            <div ref={ctaRef}>
+            </motion.p>
+            <motion.div 
+              ref={ctaRef}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 3.8 }}
+            >
               <MagneticButton className="bg-primary-orange text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-opacity-90 transition-all">
                 View Our Work
               </MagneticButton>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Content - Image with Badge (Desktop only) */}
-          <div ref={desktopImageRef} className="hidden lg:block w-full lg:w-1/2 lg:ml-auto">
+          <motion.div 
+            ref={desktopImageRef} 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 3.3 }}
+            className="hidden lg:block w-full lg:w-1/2 lg:ml-auto"
+          >
             <div className="relative flex justify-center">
               <div className="image-container rounded-3xl overflow-hidden shadow-2xl will-change-transform relative">
                 <img
-                  src="public/images/homepageImage.svg"
+                  src="/images/homepageImage.svg"
                   alt="Conference Room"
                   className="w-full h-[500px] object-cover"
                 />
@@ -214,7 +237,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

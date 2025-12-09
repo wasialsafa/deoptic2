@@ -84,6 +84,7 @@ const Projects = () => {
   return (
     <section
       ref={containerRef}
+      data-horizontal-scroll="true"
       className="h-screen overflow-hidden bg-bg-light dark:bg-bg-dark transition-colors duration-300 relative"
       id="projects"
     >
@@ -97,15 +98,24 @@ const Projects = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <div>
-                  <div className="text-sm font-semibold text-primary-orange tracking-widest mb-4">
+                  <div className="text-sm font-semibold text-primary-orange tracking-widest mb-6 uppercase">
                     {project.label}
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight text-text-dark dark:text-text-light">
-                    {project.title}
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 leading-tight text-text-dark dark:text-text-light">
+                    {project.title.includes('Fashion') ? (
+                      <>
+                        Redefining Urban<br />
+                        <span className="font-serif italic">Fashion</span>
+                      </>
+                    ) : (
+                      project.title
+                    )}
                   </h2>
-                  <p className="text-2xl md:text-3xl text-italic-serif mb-6 text-gray-600 dark:text-text-secondary">
-                    {project.subtitle}
-                  </p>
+                  {project.subtitle && (
+                    <p className="text-xl md:text-2xl mb-6 text-gray-600 dark:text-text-secondary">
+                      {project.subtitle}
+                    </p>
+                  )}
                   <p className="text-lg md:text-xl text-gray-700 dark:text-text-secondary mb-8 max-w-xl">
                     {project.description}
                   </p>

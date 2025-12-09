@@ -8,9 +8,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-orange': '#FF4920',
-        'bg-light': '#DFDFF0',
-        'bg-dark': '#0a0a0a',
+        'primary-orange': '#FF6B4A',
+        'bg-light': '#E2E2E2',
+        'bg-dark': '#0E0E0E',
         'bg-secondary-dark': '#1a1a1a',
         'text-dark': '#1a1a1a',
         'text-light': '#ffffff',
@@ -18,7 +18,7 @@ export default {
         'text-secondary-light': '#666666',
       },
       fontFamily: {
-        'sans': ['General Sans', 'sans-serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         'serif': ['Libre Caslon Text', 'serif'],
       },
     },
