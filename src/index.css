@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* CSS Variables for Theme */
+  :root {
+    --bg-primary: #DFDFF0;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --accent: #FF4920;
+  }
+
+  .dark {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #FF4920;
+  }
+
+  /* General Sans font simulation using Inter */
+  body {
+    @apply font-sans;
+    font-family: 'Inter', 'General Sans', sans-serif;
+    cursor: none;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  * {
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .text-italic-serif {
+    @apply font-serif italic;
+  }
+
+  .custom-cursor-hidden {
+    cursor: none !important;
+  }
+
+  /* Infinite marquee text animation - always running */
+  .marquee-text-inner {
+    animation: marquee-scroll 20s linear infinite;
+  }
+}
+
+/* Keyframes for marquee text animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF4920;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e63d15;
+}
