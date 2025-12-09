@@ -133,7 +133,7 @@ const Hero = () => {
             <div ref={imageRef} className="lg:hidden relative my-8">
               <div className="image-container rounded-3xl overflow-hidden shadow-2xl will-change-transform">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                  src="public/images/homepageImage.svg"
                   alt="Conference Room"
                   className="w-full h-[300px] sm:h-[400px] object-cover"
                 />
@@ -184,7 +184,7 @@ const Hero = () => {
             <div className="relative flex justify-center">
               <div className="image-container rounded-3xl overflow-hidden shadow-2xl will-change-transform relative">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                  src="public/images/homepageImage.svg"
                   alt="Conference Room"
                   className="w-full h-[500px] object-cover"
                 />

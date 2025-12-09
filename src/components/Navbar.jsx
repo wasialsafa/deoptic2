@@ -79,21 +79,34 @@ const Navbar = ({ onMenuClick }) => {
       className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-3 flex items-center justify-between bg-transparent backdrop-blur-sm"
     >
       <div className="text-xl md:text-2xl font-bold text-text-dark dark:text-text-light">
-        Doptic
+        <img 
+  src="/logos/doptic_logo_light.svg" 
+  alt="Doptic" 
+  className="h-8 md:h-10 dark:hidden"
+/>
+<img 
+  src="/logos/doptic_logo_dark.svg" 
+  alt="Doptic" 
+  className="h-8 md:h-10 hidden dark:block"
+/>
       </div>
       <div className="flex items-center gap-4">
         <ThemeToggle />
-        <MagneticButton
+        <div className="flex items-center gap-3">
+          <MagneticButton
           onClick={onMenuClick}
-          className="bg-primary-orange text-white px-4 py-2 rounded flex items-center gap-2 font-medium hover:bg-opacity-90 transition-all"
+          className="bg-primary-orange text-white px-6 py-2 rounded flex items-center gap-2 font-medium hover:bg-opacity-90 transition-all"
         >
           <span>Menu</span>
-          <div className="flex flex-col gap-[3px]">
-            <span className="w-4 h-0.5 bg-white"></span>
-            <span className="w-4 h-0.5 bg-white"></span>
-            <span className="w-4 h-0.5 bg-white"></span>
-          </div>
+          
         </MagneticButton>
+        <div className="flex flex-col gap-[5px]">
+            <span className="w-12 h-0.5 bg-text-dark dark:bg-white"></span>
+            <span className="w-8 h-0.5 bg-text-dark dark:bg-white"></span>
+            <span className="w-4 h-0.5 bg-text-dark dark:bg-white"></span>
+            
+        </div>
+        </div>
       </div>
     </nav>
   )

@@ -144,7 +144,7 @@ const NavMenu = ({ isOpen, onClose }) => {
           <div ref={imageRef} className="hidden md:flex items-center justify-center">
             <div className="w-full h-96 rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80"
+                src="/images/NavMenuImage.svg"
                 alt="Fashion"
                 className="w-full h-full object-cover"
               />

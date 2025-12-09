@@ -168,17 +168,17 @@ const About = () => {
         </div>
 
         {/* Centered Image */}
-        <div ref={imageRef} className="relative mt-8">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl w-[410px] h-[520px]">
+      <div ref={imageRef} className="relative mt-8">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:w-[410px] h-auto aspect-[410/520]">
             <img
-              src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=800&q=80"
+              src="public/images/aboutusimage1.svg"
               alt="VR Person"
               className="w-full h-full object-cover"
             />
             {/* Glowing halo effect */}
             <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-lime-500/20" />
+            </div>
           </div>
-        </div>
 
         {/* Description text - BELOW the image */}
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto text-center mt-8 drop-shadow-md">
