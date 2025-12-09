@@ -1,4 +1,4 @@
-import MagneticButton from './MagneticButton'
+import MagneticButton from '../components/MagneticButton'
 
 const Blog = () => {
   const blogPosts = [

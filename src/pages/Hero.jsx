@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowDown } from 'react-icons/fi'
-import MagneticButton from './MagneticButton'
+import MagneticButton from '../components/MagneticButton'
 
 gsap.registerPlugin(ScrollTrigger)
 

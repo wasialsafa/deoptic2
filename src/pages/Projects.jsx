@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import MagneticButton from './MagneticButton'
+import MagneticButton from '../components/MagneticButton'
 
 gsap.registerPlugin(ScrollTrigger)
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { IoClose } from 'react-icons/io5'
 import { FaInstagram, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa'
@@ -87,8 +88,26 @@ const NavMenu = ({ isOpen, onClose }) => {
     }
   }, [isOpen])
 
-  const mainLinks = ['Home', 'About', 'Projects', 'Services', 'Blogs', 'Contact Us']
+  const mainLinks = [
+    { name: 'Home', path: '/', isHash: false },
+    { name: 'About', path: '#about', isHash: true },
+    { name: 'Projects', path: '#projects', isHash: true },
+    { name: 'Services', path: '#services', isHash: true },
+    { name: 'Blogs', path: '#blog', isHash: true },
+    { name: 'Contact Us', path: '#contact', isHash: true }
+  ]
   const subMenuLinks = ['Design Agency', 'Link Two', 'Link Three', 'Link Four', 'Link Five']
+
+  const handleLinkClick = (link) => {
+    if (link.isHash) {
+      // For hash links, smooth scroll to section
+      const element = document.querySelector(link.path)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    onClose()
+  }
 
   return (
     <div
@@ -108,18 +127,41 @@ const NavMenu = ({ isOpen, onClose }) => {
         </div>
 
         {/* Menu Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 h-[calc(100%-150px)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-15 h-[calc(100%-150px)]">
           {/* Main Navigation */}
           <div ref={linksRef} className="flex flex-col justify-center space-y-4">
             {mainLinks.map((link, index) => (
               <div key={index} className="group relative flex items-center">
-                <a
-                  href={`#${link.toLowerCase().replace(' ', '-')}`}
-                  onClick={onClose}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-dark opacity-40 hover:opacity-100 hover:scale-110 hover:translate-x-4 origin-left transition-all duration-300"
-                >
-                  {link}
-                </a>
+                {link.isHash ? (
+                  <a
+                    href={link.path}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleLinkClick(link)
+                    }}
+                    className="text-xl md:text-2xl lg:text-[24px] font-medium text-text-dark opacity-40 hover:opacity-100 hover:scale-110 hover:translate-x-6 origin-left transition-all duration-300"
+                    style={{ 
+                      fontFamily: 'Inter Variable, Inter, sans-serif',
+                      lineHeight: '120%',
+                      letterSpacing: '-0.04em'
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.path}
+                    onClick={() => handleLinkClick(link)}
+                    className="text-xl md:text-2xl lg:text-[24px] font-medium text-text-dark opacity-40 hover:opacity-100 hover:scale-110 hover:translate-x-6 origin-left transition-all duration-300"
+                    style={{ 
+                      fontFamily: 'Inter Variable, Inter, sans-serif',
+                      lineHeight: '120%',
+                      letterSpacing: '-0.04em'
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                )}
                 {/* Horizontal line on right - appears on hover */}
                 <span className="absolute right-0 top-1/2 -translate-y-1/2 h-1 w-0 bg-primary-orange group-hover:w-24 transition-all duration-300" />
               </div>
