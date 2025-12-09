@@ -19,7 +19,7 @@ const Projects = () => {
       title: 'Redefining Urban Fashion',
       subtitle: 'A bold new identity',
       description: 'Creating a modern streetwear brand that captures the energy of city life through innovative design and authentic storytelling.',
-      image: 'public/images/projectsimage1.svg',
+      image: '/images/projectsimage1.svg',
       tags: ['PRODUCTION', 'LONDON', 'FASHION']
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       title: 'Halo Masterpiece',
       subtitle: 'Gaming meets art',
       description: 'An immersive digital experience celebrating the iconic gaming franchise with cutting-edge visual design and interactive elements.',
-      image: 'public/images/projectsimage2.svg',
+      image: '/images/projectsimage2.svg',
       tags: ['DIGITAL', 'GAMING', 'INTERACTIVE']
     },
     {
@@ -37,7 +37,7 @@ const Projects = () => {
       title: 'Future of Mobility',
       subtitle: 'Innovation in motion',
       description: 'Reimagining transportation through sustainable design principles and next-generation user experiences.',
-      image: 'public/images/projectsimage3.png',
+      image: '/images/projectsimage3.png',
       tags: ['AUTOMOTIVE', 'DESIGN', 'SUSTAINABILITY']
     }
   ]

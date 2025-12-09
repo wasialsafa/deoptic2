@@ -133,7 +133,7 @@ const Hero = () => {
             <div ref={imageRef} className="lg:hidden relative my-8">
               <div className="image-container rounded-3xl overflow-hidden shadow-2xl will-change-transform">
                 <img
-                  src="public/images/homepageImage.svg"
+                  src="/images/homepageImage.svg"
                   alt="Conference Room"
                   className="w-full h-[300px] sm:h-[400px] object-cover"
                 />

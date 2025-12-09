@@ -171,7 +171,7 @@ const About = () => {
       <div ref={imageRef} className="relative mt-8">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:w-[410px] h-auto aspect-[410/520]">
             <img
-              src="public/images/aboutusimage1.svg"
+              src="/images/aboutusimage1.svg"
               alt="VR Person"
               className="w-full h-full object-cover"
             />
