@@ -16,7 +16,8 @@ const Projects = () => {
     {
       id: 1,
       label: 'PROJECT 01',
-      title: 'Redefining Urban Fashion',
+      title: 'Redefining Urban',
+      titleHighlight: 'Fashion',
       subtitle: 'A bold new identity',
       description: 'Creating a modern streetwear brand that captures the energy of city life through innovative design and authentic storytelling.',
       image: '/images/projectsimage1.svg',
@@ -102,10 +103,10 @@ const Projects = () => {
                     {project.label}
                   </div>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 leading-tight text-text-dark dark:text-text-light">
-                    {project.title.includes('Fashion') ? (
+                    {project.titleHighlight ? (
                       <>
-                        Redefining Urban<br />
-                        <span className="font-serif italic">Fashion</span>
+                        {project.title}<br />
+                        <span className="font-serif italic">{project.titleHighlight}</span>
                       </>
                     ) : (
                       project.title

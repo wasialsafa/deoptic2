@@ -134,7 +134,7 @@ const Blog = () => {
               </p>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

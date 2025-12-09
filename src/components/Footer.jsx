@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
+const CONTACT_EMAIL = 'hello@info.com'
+
 const Footer = () => {
   const footerLinks = {
     company: [
@@ -55,11 +57,11 @@ const Footer = () => {
           className="text-center mb-16"
         >
           <a 
-            href="mailto:hello@info.com" 
+            href={`mailto:${CONTACT_EMAIL}`}
             className="text-3xl md:text-4xl lg:text-5xl font-bold hover:opacity-80 transition-opacity inline-block"
             data-cursor-text="Click to Email"
           >
-            hello@info.com
+            {CONTACT_EMAIL}
           </a>
         </motion.div>
 

@@ -143,8 +143,8 @@ const CustomCursor = () => {
           ref={cursorTextRef}
           className="fixed pointer-events-none z-[9998] bg-primary-orange text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-opacity duration-300"
           style={{
-            left: `${cursorPos.current.x}px`,
-            top: `${cursorPos.current.y - 40}px`,
+            left: `${mousePos.current.x}px`,
+            top: `${mousePos.current.y - 40}px`,
             transform: 'translateX(-50%)',
           }}
         >
